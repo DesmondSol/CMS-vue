@@ -4,92 +4,66 @@ import gql from 'graphql-tag'
 
 
     const { result, loading, error, refetch } = useQuery(gql`
-      query countries {
-      countries{
-  	emoji
-    name
-    continent{
-      name 
-    }
-    code
-    phone
-    capital
-    currency
-    languages{
-      name
-    }
-    states{
-      name
-    }
+  #     query countries {
+  #     countries{
+  # 	emoji
+  #   name
+  #   continent{
+  #     name 
+  #   }
+  #   code
+  #   phone
+  #   capital
+  #   currency
+  #   languages{
+  #     name
+  #   }
+  #   states{
+  #     name
+  #   }
+  # }
+  #   }
+
+  query getAllPages {
+  getAllPages{
+    id
+    title
+    description
+    image_url
   }
-    }
+}
     `)
 
-    const countries = useResult(result)
-
+   // const countries = useResult(result)
+const getAllPages = useResult(result)
 
 
 </script>
 
 <template>
-
+ <div class="grid grid-cols-4 gap-4">
   <div v-if="loading">Loading...</div>
 
   <div v-else-if="error">Error: {{ error.message }}</div>
 
 
-<a href="#" v-for="country of countries" :key="country.id" class="block p-6 max-w-5xl bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{{ country.emoji }}  {{ country.name }}</h5>
-    <div class="font-normal text-gray-700 dark:text-gray-400 flex space-x-4">
-     <div> Continent: {{country.continent.name}}  </div>
-     <div> Code: {{country.code}}      </div>
-     <div> phone: {{country.phone}}</div>
-     <div> capital: {{country.capital}}</div>
-     <div> currency: {{country.currency}}</div>
-    </div>
-    <div class="font-normal text-gray-700 dark:text-gray-400 flex space-x-4">
-     languages: <div v-for="language of country.languages.slice(0,8)" :key="language.name" > {{language.name}}  </div>
-    </div>
- <div  class="font-normal text-gray-700 dark:text-gray-400 flex space-x-4">
-    states:  <div v-for="states of country.states.slice(0,8)" :key="states.name"> {{states.name}} </div>
+<a href="#" v-for="page of getAllPages" :key="page.id" class="flex  p-6 space-x-4  bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <div class="flex"><img :src="page.image_url " alt="img"></div>
+    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white"> 
+       {{ page.title }}</h5>
+    <div class=" font-normal text-gray-700 dark:text-gray-400 flex space-x-4">
+     <div> Discription: {{page.description.slice(0,160)}}...  </div>
+  
     </div>
     
+    
 </a>
+</div>
 
-
-
-<!-- 
-  <table>
-    <thead>
-      <th>Country Name</th>
-      <th>Country Emoji</th>
-      <th>Country Code</th>
-      <th>Country Capital</th>
-      <th>Country Languages</th>
-      <th>Country States</th>
-    </thead>
-
-    <tbody>
-       <tr v-for="country of countries" :key="country.id">
-        <td>{{ country.name }}</td>
-        <td>{{ country.emoji }}</td>
-        <td>{{ country.code }}</td>
-        <td>{{ country.capital }}</td>
-
-        <td >
-          <div v-for="language in country.languages" :key="language.name">
-            {{ language.name }}
-          </div>
-          </td>
-        <td>
-          <div v-for="states in country.states" :key="states.name">
-            {{ states.name }}
-          </div>
-        </td>
-       </tr>
-    </tbody>
-  </table> -->
-
+<div class="flex content-center justify-center">
+<button type="button" class=" my-2  text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
++ Add Page
+</button></div>
 </template>
 
 
@@ -98,7 +72,11 @@ import gql from 'graphql-tag'
     border: 1px solid black;
     /* border-collapse: collapse; */
   }
-
+img {
+  border-radius: 50%;
+  width: 190px;
+  height: auto;
+}
   th {
     padding: 10px;
     background-color: lightblue;

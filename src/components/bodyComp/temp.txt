@@ -106,3 +106,36 @@ export default {
   }
 }
 </script>
+
+
+<!-- 
+  <table>
+    <thead>
+      <th>Country Name</th>
+      <th>Country Emoji</th>
+      <th>Country Code</th>
+      <th>Country Capital</th>
+      <th>Country Languages</th>
+      <th>Country States</th>
+    </thead>
+
+    <tbody>
+       <tr v-for="country of countries" :key="country.id">
+        <td>{{ country.name }}</td>
+        <td>{{ country.emoji }}</td>
+        <td>{{ country.code }}</td>
+        <td>{{ country.capital }}</td>
+
+        <td >
+          <div v-for="language in country.languages" :key="language.name">
+            {{ language.name }}
+          </div>
+          </td>
+        <td>
+          <div v-for="states in country.states" :key="states.name">
+            {{ states.name }}
+          </div>
+        </td>
+       </tr>
+    </tbody>
+  </table> -->

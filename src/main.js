@@ -17,6 +17,14 @@ const routes = [
   { path: '/about',
     name: 'notfound',  
     component: notfound },
+  { path: '/addPage',
+    name: 'addPage',
+    component: () => import('./screens/addPage.vue') },
+  { path: '/viewedit',
+    name: 'viewedit',
+    component: () => import('./screens/view_edit.vue') },
+
+  
 ]
  
 const router = createRouter({
