@@ -34,8 +34,8 @@ export default {
   <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 mb-3 bg-zinc-500 ">
     <div class="container flex flex-wrap items-center justify-between px-4 mx-auto">
       <div class="relative flex justify-between w-full px-4 lg:w-auto lg:static lg:block lg:justify-start">
-        <a class="inline-block py-2 mr-4 text-sm font-bold leading-relaxed text-white uppercase whitespace-nowrap" href="#">
-          SOL demo
+        <a class="inline-block py-2 mr-4 text-sm font-bold leading-relaxed text-white uppercase whitespace-nowrap" href="/">
+          Demo Pages
         </a>
         <button class="block px-3 py-1 text-xl leading-none text-white bg-transparent border border-transparent border-solid rounded outline-none cursor-pointer lg:hidden focus:outline-none" type="button" v-on:click="toggleNavbar()">
           <i class="fas fa-bars"></i>

@@ -14,16 +14,16 @@ const routes = [
   { path: '/',
     name: 'landing',
    component: landing },
-  { path: '/about',
-    name: 'notfound',  
-    component: notfound },
+  
   { path: '/addPage',
     name: 'addPage',
     component: () => import('./screens/addPage.vue') },
   { path: '/viewedit',
     name: 'viewedit',
     component: () => import('./screens/view_edit.vue') },
-
+  { path: '/:pathMatch(.*)*',
+      name: 'notfound',  
+      component: notfound },
   
 ]
  

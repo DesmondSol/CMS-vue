@@ -1,4 +1,11 @@
 <script setup>
+import { useMutation } from '@vue/apollo-composable'
+import gql from 'graphql-tag'
+
+
+
+
+
 
 </script>
 <template>
@@ -70,6 +77,7 @@
             AddPage
           </button>
           <a
+          @click="$router.push('/')"
             class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
             href="#"
           >

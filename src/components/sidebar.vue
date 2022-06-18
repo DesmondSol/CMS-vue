@@ -75,10 +75,20 @@ import { ref } from 'vue'
           <a
             class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
             href="#"
+            @click="$router.push('/')"
           >
             Back
           </a>
+          
         </div>
+        <div class="flex justify-center pt-4">
+        <button
+            class="bg-red-600  hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+          >
+            DeletePage
+          </button>
+          </div>
       </form>
     </div>
   </div>

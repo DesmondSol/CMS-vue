@@ -17,7 +17,9 @@ import gql from 'graphql-tag'
 
    // const countries = useResult(result)
 const getPage = useResult(result)
-
+const tit=getPage.page 
+const desc=getPage.description
+const img=getPage.image_url
 
 </script>
 
@@ -26,9 +28,10 @@ const getPage = useResult(result)
   <div v-if="loading">Loading...</div>
 
   <div v-else-if="error">Error: {{ error.message }}</div>
-
-<h1>{{getPage}}</h1>
-    
+{{getPage}}
+<h1>{{tit}}</h1>
+<img :src="desc" alt="pic">
+<h2>{{desc}}</h2>    
     
 
 </div>
