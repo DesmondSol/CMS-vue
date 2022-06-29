@@ -53,7 +53,7 @@ const getAllPages = useResult(result)
     <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white"> 
        {{ page.title }}</h5>
     <div class=" font-normal text-gray-700 dark:text-gray-400 flex space-x-4">
-     <div> Discription: {{page.description.slice(0,160)}}...  </div>
+     <div> Discription: {{page.description.slice(0,10)}}...  </div>
   
     </div>
     </div>
